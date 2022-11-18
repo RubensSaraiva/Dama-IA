@@ -2,7 +2,7 @@ from copy import deepcopy
 import pygame
 
 RED = (255,0,0)
-WHITE = (255, 255, 255)
+BLUE = (0, 0, 255)
 
 def minimax(position, depth, max_player, game):
     if depth == 0 or position.winner() != None:
@@ -11,7 +11,7 @@ def minimax(position, depth, max_player, game):
     if max_player:
         maxEval = float('-inf')
         best_move = None
-        for move in get_all_moves(position, WHITE, game):
+        for move in get_all_moves(position, BLUE, game):
             evaluation = minimax(move, depth-1, False, game)[0]
             maxEval = max(maxEval, evaluation)
             if maxEval == evaluation:
